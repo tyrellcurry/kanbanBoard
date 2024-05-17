@@ -1,6 +1,6 @@
 # Tira | A KanBan Board App
 
-This is an interactive and dynamic KanBan board app utilizing [React](https://react.dev/) on the frontend and [Postgres](https://www.postgresql.org/) and [Java Spring Boot](https://spring.io/projects/spring-boot) on the backend. 
+This is an interactive and dynamic KanBan board app utilizing [React](https://react.dev/) on the frontend and [Postgres](https://www.postgresql.org/) and [Java Spring Boot](https://spring.io/projects/spring-boot) on the backend.
 
 Currently under development 🚧!
 
@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Built with
 
-- [React](https://react.dev/) 
+- [React](https://react.dev/)
 - [Typescript](https://www.typescriptlang.org/)
 - [SASS](https://sass-lang.com/)
 - [Babel](https://webpack.js.org/)
@@ -44,10 +44,11 @@ Users should be able to:
 - [Postgres](https://www.postgresql.org/)
 - [Java Spring Boot](https://spring.io/projects/spring-boot)
 - [Docker](https://www.docker.com/)
+- [Jest](https://jestjs.io/)
 
 ### What I've learned
 
-(To be filled out further into the project) 
+(To be filled out further into the project)
 
 ### Continued development
 
@@ -55,9 +56,9 @@ Features and live deployment are currently in progress.
 
 ### Useful resources
 
-- [Webpack Guides](https://webpack.js.org/guides) 
-- [Building a TypeScript-React Project from Scratch with Webpack](https://medium.com/javascript-journal-unlocking-project-potential/building-a-typescript-react-project-from-scratch-with-webpack-b224a3f84e3b) 
-- [How to SASS with Webpack](https://www.robinwieruch.de/webpack-sass/) 
+- [Webpack Guides](https://webpack.js.org/guides)
+- [Building a TypeScript-React Project from Scratch with Webpack](https://medium.com/javascript-journal-unlocking-project-potential/building-a-typescript-react-project-from-scratch-with-webpack-b224a3f84e3b)
+- [How to SASS with Webpack](https://www.robinwieruch.de/webpack-sass/)
 
 ### Author
 
