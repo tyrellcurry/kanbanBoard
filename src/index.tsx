@@ -12,9 +12,8 @@ const root = createRoot(domNode);
 root.render(
   <>
     <Layout>
-      <TestComponent />
       <Signin />
-      <App title={"Tester"} />
+      <App />
     </Layout>
   </>
 );
