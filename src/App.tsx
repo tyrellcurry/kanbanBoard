@@ -2,6 +2,7 @@
 import React from "react";
 import "./app.scss";
 
+
 const App = ({ title }: any) => {
   return (
     <div>
