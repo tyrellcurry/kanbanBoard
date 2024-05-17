@@ -1,6 +1,6 @@
 # Tira | A KanBan Board App
 
-This is an interactive and dynamic KanBan board app utilizing [React](https://react.dev/) on the frontend and [Postgres](https://www.postgresql.org/) and [Java Spring Boot](https://spring.io/projects/spring-boot) on the backend.
+This is an interactive and dynamic KanBan board app utilizing [React](https://react.dev/) (setup from scratch) on the frontend and [Postgres](https://www.postgresql.org/) and [Java Spring Boot](https://spring.io/projects/spring-boot) on the backend.
 
 Currently under development 🚧!
 
