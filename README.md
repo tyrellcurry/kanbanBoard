@@ -59,6 +59,7 @@ Features and live deployment are currently in progress.
 - [Webpack Guides](https://webpack.js.org/guides)
 - [Building a TypeScript-React Project from Scratch with Webpack](https://medium.com/javascript-journal-unlocking-project-potential/building-a-typescript-react-project-from-scratch-with-webpack-b224a3f84e3b)
 - [How to SASS with Webpack](https://www.robinwieruch.de/webpack-sass/)
+- [Testing React Apps](https://jestjs.io/docs/tutorial-react)
 
 ### Author
 

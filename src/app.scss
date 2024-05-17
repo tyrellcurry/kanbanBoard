@@ -1,7 +1,38 @@
-$font-stack: Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+$font-stack: "Lato", sans-serif;
 $primary-color: #333;
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+}
+
+.layout {
+  padding: 0 clamp(2rem, 12vw, 8rem);
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      width: 100px;
+      height: auto;
+    }
+    ul {
+      list-style: none;
+      button {
+        background: none;
+        border: none;
+        background-color: rgb(100, 100, 255);
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(125, 125, 255);
+        }
+      }
+    }
+  }
 }
