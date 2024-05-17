@@ -7,15 +7,29 @@ body {
   color: $primary-color;
 }
 
+// Layout Component
 .layout {
-  padding: 0 clamp(2rem, 12vw, 8rem);
+  main {
+    padding: 0 clamp(2rem, 12vw, 8rem);
+  }
+  // Nav
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img {
-      width: 100px;
+    padding: 1rem clamp(2rem, 12vw, 8rem);
+    background-color: rgb(138, 138, 138);
+    .logo img {
+      width: 50px;
       height: auto;
+    }
+    .logo a {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      text-decoration: none;
+      font-size: 2.5rem;
+      color: #fff;
     }
     ul {
       list-style: none;
@@ -34,5 +48,11 @@ body {
         }
       }
     }
+  }
+  // Footer
+  footer {
+    background-color: rgb(214, 214, 214);
+    padding: 1rem clamp(2rem, 12vw, 8rem);
+    margin-top: 2rem;
   }
 }
