@@ -39,7 +39,10 @@ const App = () => {
               <div className="get_started">
                 <p>Ready to get started?</p>
                 <div className="buttons">
-                  <button onClick={() => loginWithRedirect()}>Sign Up</button>
+                  <button onClick={() => loginWithRedirect({authorizationParams: {
+                      screen_hint: "signup",
+                      mode: 'signUp',
+                    }})}>Sign Up</button>
                   <button onClick={() => loginWithRedirect()}>Sign In</button>
                 </div>
               </div>
