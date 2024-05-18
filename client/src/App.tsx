@@ -2,6 +2,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./app.scss";
+import KanbanBoard from "./Components/KanbanBoard";
 
 const App = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
@@ -20,7 +21,7 @@ const App = () => {
                 <h1>{user?.name ? `${user?.name}'s` : ""} Kanban Board</h1>
               </div>
               <div className="board">
-                board will go here
+                <KanbanBoard />
               </div>
             </div>
           ) : (
