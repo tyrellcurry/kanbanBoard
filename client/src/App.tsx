@@ -7,21 +7,44 @@ const App = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
     useAuth0();
   return (
-    <main>
-      {isAuthenticated ? (
-        <div>
-          <h1>Hi {user?.name ? user?.name : "there"}, you are signed in!</h1>
-          <button
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }>
-            Log Out
-          </button>
+    <main className="app">
+      {isLoading ? (
+        <div className="loading">
+          <img src="./images/loading.gif" alt="Loading spinner" />
         </div>
       ) : (
         <div>
-          <h1>You are not signed in</h1>
-          <button onClick={() => loginWithRedirect()}>Log In</button>
+          {isAuthenticated ? (
+            <div className="kanban">
+              <div className="title">
+                <h1>{user?.name ? `${user?.name}'s` : ""} Kanban Board</h1>
+              </div>
+              <div className="board">
+                board will go here
+              </div>
+            </div>
+          ) : (
+            <div className="intro">
+              <div className="title">
+                <h1>Welcome to Tira!</h1>
+                <p>
+                  A Kanban Board application to manage your tasks, completely
+                  free to use!
+                </p>
+                <img
+                  src="./images/kanban-illustration.png"
+                  alt="Kanban Board"
+                />
+              </div>
+              <div className="get_started">
+                <p>Ready to get started?</p>
+                <div className="buttons">
+                  <button onClick={() => loginWithRedirect()}>Sign Up</button>
+                  <button onClick={() => loginWithRedirect()}>Sign In</button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </main>
