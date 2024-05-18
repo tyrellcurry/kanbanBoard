@@ -1,6 +1,4 @@
-# <div style="display: flex; align-items: center;"><img src="./client/public/images/logo-2.png" width="50" style="margin-right: 10px;" /> Tira | A KanBan Board App</div>
-
-
+# Tira | A Kanban Board App
 
 This is an interactive and dynamic KanBan board app utilizing [React](https://react.dev/) (setup from scratch) on the frontend and [Postgres](https://www.postgresql.org/) and [Java Spring Boot](https://spring.io/projects/spring-boot) on the backend.
 
