@@ -5,6 +5,7 @@ $accent-color-pink: #cd49e4;
 $accent-color-blue: #68a7e4;
 $accent-color-lavender: #a670e6;
 $background: #f6f6f6;
+$background-light: #f0f0f0;
 $background-md: #dadada;
 $layout-padding: 1rem clamp(2rem, 12vw, 8rem);
 $page-padding: 0 clamp(2rem, 12vw, 8rem);
@@ -107,6 +108,7 @@ button:hover {
           $accent-color-pink,
           $primary-color
         );
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
@@ -147,6 +149,32 @@ button:hover {
     .board {
       padding-top: 2rem;
       text-align: center;
+      display: flex;
+      gap: 4rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+
+      .issues {
+        padding: 1rem 0;
+        .issue {
+          background-color: $background-light;
+          padding: 1rem;
+          border-radius: $border-radius;
+        }
+        .create_issue {
+          padding-top: 1rem;
+          button {
+            padding: 0;
+            color: $primary-color;
+            font-weight: 600;
+            background: none;
+            &:hover {
+              color: $accent-color-blue;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -159,7 +187,7 @@ button:hover {
       background: none;
       background-color: none;
       padding: 0;
-      padding-top: .5rem;
+      padding-top: 0.5rem;
       text-decoration: underline;
       color: $primary-color;
     }
