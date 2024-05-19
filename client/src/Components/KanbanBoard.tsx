@@ -1,40 +1,35 @@
 // src/REPLACE.tsx
-import React from "react";
+import React, { useState } from "react";
+import uuid from "react-uuid";
+import IssueWrapper from "./IssueWrapper";
 
-const KanbanBoard = () => {
-  const createIssue = (event: any) => {
-    const categoryElement = event.currentTarget.closest(".category");
-    
-    const issueContainer = categoryElement.querySelector('.issues');
-    console.log(issueContainer);
-    
-    const newIssueElement = document.createElement('div');
-    newIssueElement.classList.add('issue');
-    newIssueElement.innerHTML = `
-      <div className="content">
-        <h3>Issue Title</h3>
-        <p>Issue Description</p>
-      </div>
-    `
-    issueContainer.appendChild(newIssueElement);
-  }
+const KanbanBoard: React.FC = () => {
   return (
     <>
       <section className="board">
-        <div className="category" data-category="todo" data-testid="todo">
+        <div className="category" data-category="todo" data-testid="category">
           <h2>To Do</h2>
-          <div className="issues"></div>
-          <button className="create_issue" onClick={createIssue}>Create new issue</button>
+          <div className="issues">
+            <IssueWrapper />
+          </div>
         </div>
-        <div className="category" data-category="in_progress" data-testid="in_progress">
+        <div
+          className="category"
+          data-category="in_progress"
+          data-testid="category">
           <h2>In Progress</h2>
-          <div className="issues"></div>
-          <button className="create_issue" onClick={createIssue}>Create new issue</button>
+          <div className="issues">
+            <IssueWrapper />
+          </div>
         </div>
-        <div className="category" data-category="completed" data-testid="completed">
+        <div
+          className="category"
+          data-category="completed"
+          data-testid="category">
           <h2>Completed</h2>
-          <div className="issues"></div>
-          <button className="create_issue" onClick={createIssue}>Create new issue</button>
+          <div className="issues">
+            <IssueWrapper />
+          </div>
         </div>
       </section>
     </>
