@@ -5,6 +5,7 @@ $accent-color-pink: #cd49e4;
 $accent-color-blue: #68a7e4;
 $accent-color-lavender: #a670e6;
 $background: #f6f6f6;
+$background-lighter: #f5f5f5;
 $background-light: #f0f0f0;
 $background-md: #dadada;
 $layout-padding: 1rem clamp(2rem, 12vw, 8rem);
@@ -150,20 +151,26 @@ button:hover {
       padding-top: 2rem;
       text-align: center;
       display: flex;
-      gap: 4rem;
+      gap: 1rem;
       width: 100%;
-      max-width: 1200px;
-      margin: auto;
+      overflow-x: scroll;
 
       .issues {
         padding: 1rem 0;
+        .issue_wrapper {
+          background-color: $background-lighter;
+          padding: 1rem;
+          width: 275px;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
         .issue {
-          background-color: $background-light;
+          background-color: $background-md;
           padding: 1rem;
           border-radius: $border-radius;
         }
         .create_issue {
-          padding-top: 1rem;
           button {
             padding: 0;
             color: $primary-color;
@@ -172,6 +179,18 @@ button:hover {
             &:hover {
               color: $accent-color-blue;
             }
+          }
+        }
+      }
+      .add_category {
+        button {
+          border: solid 2px $primary-color;
+          color: $primary-color;
+          background: $background-light;
+          font-size: 1.15rem;
+          padding: .25rem .5rem;
+          &:hover {
+            background: $background-md;
           }
         }
       }

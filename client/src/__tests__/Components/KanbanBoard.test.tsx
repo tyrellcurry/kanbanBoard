@@ -8,24 +8,32 @@ describe("KanbanBoard", () => {
   });
 
   describe("base categories rendering", () => {
-    test("categories rendering", () => {
+    test("categories rendering", async() => {
+      // Create new category
+      const categoryAddButton = screen.getByTestId('add_category');
+      fireEvent.click(categoryAddButton);
+      const categoryNameInput = screen.getByTestId('category_name_input');
+      fireEvent.change(categoryNameInput, { target: { value: 'New Category' } });
+      const categorySaveButton = screen.getByTestId('save_category');
+      fireEvent.click(categorySaveButton);
+
       // Get all category elements
-      const categoryElements = screen.getAllByTestId(/category/i);
+      const categoryElements = screen.getAllByTestId('category');
 
       // Extract category names
       const categories = categoryElements.map((categoryElement) => {
         return categoryElement.textContent?.split('+')[0].trim();
       });
       
-    
     // Ensure base categories are present
       expect(categories).toContain("To Do");
       expect(categories).toContain("In Progress");
       expect(categories).toContain("Completed");
+      expect(categories).toContain("New Category");
     });
 
     test("create issue button in each category", () => {
-      const categoryElements = screen.getAllByTestId(/category/i);
+      const categoryElements = screen.getAllByTestId('category');
 
       categoryElements.forEach(async (categoryElement) => {
         const categoryWithin = within(categoryElement);
