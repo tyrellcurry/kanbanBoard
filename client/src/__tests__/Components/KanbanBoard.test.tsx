@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within, waitFor } from "@testing-library/react";
 import KanbanBoard from "../../Components/KanbanBoard";
 
 describe("KanbanBoard", () => {
@@ -27,7 +27,7 @@ describe("KanbanBoard", () => {
     test("create issue button in each category", () => {
       const categoryElements = screen.getAllByTestId(/category/i);
 
-      categoryElements.forEach((categoryElement) => {
+      categoryElements.forEach(async (categoryElement) => {
         const categoryWithin = within(categoryElement);
 
         const createIssueButton = categoryWithin.getByTestId("create_issue");
@@ -47,7 +47,9 @@ describe("KanbanBoard", () => {
         expect((editTitleInput as HTMLInputElement).value).toBe('New Title');
         const saveInput = categoryWithin.getByTestId("save_input");
         fireEvent.click(saveInput);
-        expect(issueTitle.textContent).toBe("New Title");
+        await waitFor(() => {
+          expect(issueTitle.textContent).toBe("New Title");
+        });
 
         // Test delete functionality
         const deleteButton = categoryWithin.getByTestId("delete_button");

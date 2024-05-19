@@ -158,11 +158,9 @@ button:hover {
       .issues {
         padding: 1rem 0;
         .issue {
-          .content {
-            background-color: $background-light;
-            padding: 1rem;
-            border-radius: $border-radius;
-          }
+          background-color: $background-light;
+          padding: 1rem;
+          border-radius: $border-radius;
         }
         .create_issue {
           padding-top: 1rem;
@@ -189,7 +187,7 @@ button:hover {
       background: none;
       background-color: none;
       padding: 0;
-      padding-top: .5rem;
+      padding-top: 0.5rem;
       text-decoration: underline;
       color: $primary-color;
     }
