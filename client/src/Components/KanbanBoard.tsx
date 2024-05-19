@@ -1,35 +1,39 @@
 // src/REPLACE.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import IssueWrapper from "./IssueWrapper";
+import Category from "./Category";
+import CreateCategory from "./CreateCategory";
+
+interface Category {
+  id: string, 
+  name: string,
+}
 
 const KanbanBoard: React.FC = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  const addCategory = (category: any) => {
+    const newCategory: Category = {
+      id: uuid(),
+      name: category
+    };
+    setCategories([...categories, newCategory]);
+  }
+
   return (
     <>
       <section className="board">
-        <div className="category" data-category="todo" data-testid="category">
-          <h2>To Do</h2>
-          <div className="issues">
-            <IssueWrapper />
-          </div>
+        <Category name={'To Do'} />
+        <Category name={'In Progress'} />
+        <Category name={'Completed'} />
+        <div>
+          {categories.map(category => (
+            <Category name={category.name} key={category.id} />
+          ))}
         </div>
-        <div
-          className="category"
-          data-category="in_progress"
-          data-testid="category">
-          <h2>In Progress</h2>
-          <div className="issues">
-            <IssueWrapper />
-          </div>
-        </div>
-        <div
-          className="category"
-          data-category="completed"
-          data-testid="category">
-          <h2>Completed</h2>
-          <div className="issues">
-            <IssueWrapper />
-          </div>
+        <div className="add_category">
+          <CreateCategory addCategory={addCategory} />
         </div>
       </section>
     </>

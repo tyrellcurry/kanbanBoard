@@ -8,7 +8,7 @@ const App = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
     useAuth0();
   return (
-    <main className="app">
+    <div className="app">
       {isLoading ? (
         <div className="loading">
           <img src="./images/loading.gif" alt="Loading spinner" />
@@ -56,7 +56,7 @@ const App = () => {
           )}
         </div>
       )}
-    </main>
+    </div>
   );
 };
 
