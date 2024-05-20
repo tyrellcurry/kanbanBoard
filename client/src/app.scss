@@ -169,6 +169,14 @@ button:hover {
           background-color: $background-md;
           padding: 1rem;
           border-radius: $border-radius;
+          button {
+            padding: 0;
+            background: none;
+            color: $primary-color;
+            &:hover {
+              color: $accent-color-blue;
+            }
+          }
         }
         .create_issue {
           button {

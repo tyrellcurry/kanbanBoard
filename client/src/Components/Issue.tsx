@@ -1,15 +1,14 @@
 import React, { useState, FormEvent } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
   const [editing, setEditing] = useState(false);
 
   const saveEditedIssue = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('I was clicked!')
     const formData = new FormData(event.currentTarget);
     const inputText = formData.get('edit') as string;
-
-    console.log('Input Text:', inputText);
     updateIssue(issue.id, inputText);
     setEditing(false);
   };
@@ -24,17 +23,17 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
         </div>
       ) : (
         <div>
-          <p data-testid="issue_title">{issue.issue}</p>
           <div>
-            <button data-testid="edit_button" onClick={() => setEditing(true)}>
-              edit
-            </button>
+          <button data-testid="edit_button" onClick={() => setEditing(true)}>
+          <FontAwesomeIcon icon={faEdit} />
+          </button>
             <button
               data-testid="delete_button"
               onClick={() => deleteIssue(issue.id)}>
-              delete
+              <FontAwesomeIcon icon={faTrash} />
             </button>
           </div>
+          <p data-testid="issue_title">{issue.issue}</p>
         </div>
       )}
     </div>
