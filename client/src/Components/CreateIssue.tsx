@@ -4,7 +4,7 @@ const CreateIssue = ({ createIssue }: any) => {
   const [issue, setIssue] = useState({});
 
   const handleClick = () => {
-    createIssue("test");
+    createIssue("Issue Title", "Issue Description");
   };
   return (
     <div className="create_issue">

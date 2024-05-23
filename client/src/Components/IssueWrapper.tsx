@@ -5,15 +5,16 @@ import Issue from "./Issue";
 
 interface Issue {
   id: string;
-  issue: string;
+  issueTitle: string;
+  issueDescription: string;
   category: string;
 }
 
 const IssueWrapper = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
 
-  const createIssue = (issue: string) => {
-    const newIssue: Issue = { id: uuid(), issue: issue, category: 'todo'};
+  const createIssue = (issueTitle: string, issueDescription: string) => {
+    const newIssue: Issue = { id: uuid(), issueTitle: issueTitle, issueDescription: issueDescription, category: 'todo'};
     setIssues([...issues, newIssue]);
   };
 
@@ -27,7 +28,6 @@ const IssueWrapper = () => {
 
   return (
     <div className="issue_wrapper">
-      {/* <Issue issue={'test'} /> */}
       {
         issues.map((issue, index) => (        
           <Issue issue={issue} key={index} deleteIssue={deleteIssue} updateIssue={updateIssue} />
