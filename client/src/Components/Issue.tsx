@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faEllipsis, faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 
 const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
   const [editing, setEditing] = useState(false);
@@ -10,17 +10,19 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const inputText = formData.getAll("edit");
+    console.log(inputText);
     updateIssue(issue.id, inputText);
     setEditing(false);
+    setEditingMenu(false);
   };
   return (
     <div className="issue" data-testid="issue">
       {editing ? (
         <div>
-          <form onSubmit={saveEditedIssue}>
+          <form className="edit" onSubmit={saveEditedIssue}>
             <input name="edit" type="text" data-testid="title_input" />
             <textarea name="edit" data-testid="title_description"></textarea>
-            <button data-testid="save_input">Save</button>
+            <button data-testid="save_input"><FontAwesomeIcon icon={faFloppyDisk} />Save</button>
           </form>
         </div>
       ) : (
@@ -43,7 +45,7 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
             </div>
           )}
           <h3 data-testid="issue_title">{issue.issueTitle}</h3>
-          <h3 data-testid="issue_description">{issue.issueDescription}</h3>
+          <p data-testid="issue_description">{issue.issueDescription}</p>
         </div>
       )}
     </div>

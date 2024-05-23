@@ -23,7 +23,8 @@ const IssueWrapper = () => {
   }
 
   const updateIssue = (id: string, inputText: string) => {
-    setIssues(issues.map(issue => issue.id === id ? {...issue, issue: inputText} : issue))
+    console.log(inputText);
+    setIssues(issues.map(issue => issue.id === id ? {...issue, issueTitle: inputText[0], issueDescription: inputText[1]} : issue))
   }
 
   return (
