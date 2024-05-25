@@ -1,32 +1,43 @@
 import React, { useState, FormEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faEllipsis, faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import { useDrag } from 'react-dnd';
 
 const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
   const [editing, setEditing] = useState(false);
   const [editingMenu, setEditingMenu] = useState(false);
+  const [{ isDragging }, drag] = useDrag({
+    type: 'ISSUE', // Ensure type is defined
+    item: { id: issue.id },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
 
+  const opacity = isDragging ? 0.5 : 1;
   const saveEditedIssue = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const inputText = formData.getAll("edit");
-    updateIssue(issue.id, inputText);
+    const editedTitle = formData.get("title") as string; // Assuming 'edit' is the name of the input field for title
+    const editedDescription = formData.get("description") as string; // Assuming 'edit_description' is the name of the textarea for description
+    updateIssue(issue.id, { issueTitle: editedTitle, issueDescription: editedDescription });
     setEditing(false);
+    setEditingMenu(false);
   };
   return (
-    <div className="issue" data-testid="issue">
+    <div className="issue" data-testid="issue" ref={drag} style={{ opacity }}>
       {editing ? (
         <div>
-          <form onSubmit={saveEditedIssue}>
-            <input name="edit" type="text" data-testid="title_input" />
-            <textarea name="edit" data-testid="title_description"></textarea>
-            <button data-testid="save_input">Save</button>
+          <form className="edit" onSubmit={saveEditedIssue}>
+            <input name="title" type="text" data-testid="title_input" />
+            <textarea name="description" data-testid="title_description"></textarea>
+            <button data-testid="save_input"><FontAwesomeIcon icon={faFloppyDisk} />Save</button>
           </form>
         </div>
       ) : (
         <div className="contents">
           <div className="edit_menu">
-            <button onClick={() => setEditingMenu(!editingMenu)}><FontAwesomeIcon icon={faEllipsis} /></button>
+            <button data-testid="edit_ellipsis" onClick={() => setEditingMenu(!editingMenu)}><FontAwesomeIcon icon={faEllipsis} /></button>
           </div>
           {editingMenu && (
             <div className="editing">
@@ -43,7 +54,7 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
             </div>
           )}
           <h3 data-testid="issue_title">{issue.issueTitle}</h3>
-          <h3 data-testid="issue_description">{issue.issueDescription}</h3>
+          <p data-testid="issue_description">{issue.issueDescription}</p>
         </div>
       )}
     </div>

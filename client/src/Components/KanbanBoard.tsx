@@ -1,13 +1,12 @@
 // src/REPLACE.tsx
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import IssueWrapper from "./IssueWrapper";
 import Category from "./Category";
 import CreateCategory from "./CreateCategory";
 
 interface Category {
-  id: string, 
-  name: string,
+  id: string;
+  name: string;
 }
 
 const KanbanBoard: React.FC = () => {
@@ -16,22 +15,20 @@ const KanbanBoard: React.FC = () => {
   const addCategory = (category: any) => {
     const newCategory: Category = {
       id: uuid(),
-      name: category
+      name: category,
     };
     setCategories([...categories, newCategory]);
-  }
+  };
 
   return (
     <>
       <section className="board">
-        <Category name={'To Do'} />
-        <Category name={'In Progress'} />
-        <Category name={'Completed'} />
-        <div>
-          {categories.map(category => (
-            <Category name={category.name} key={category.id} />
-          ))}
-        </div>
+        <Category name={"To Do"} />
+        <Category name={"In Progress"} />
+        <Category name={"Completed"} />
+        {categories.map((category) => (
+          <Category name={category.name} key={category.id} />
+        ))}
         <div className="add_category">
           <CreateCategory addCategory={addCategory} />
         </div>
