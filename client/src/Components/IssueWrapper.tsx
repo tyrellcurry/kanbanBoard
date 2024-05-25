@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CreateIssue from "./CreateIssue";
 import uuid from "react-uuid";
 import Issue from "./Issue";
+import { useDrag } from 'react-dnd'
 
 interface Issue {
   id: string;

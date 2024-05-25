@@ -1,11 +1,20 @@
 import React, { useState, FormEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash, faEllipsis, faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import { useDrag } from 'react-dnd';
 
 const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
   const [editing, setEditing] = useState(false);
   const [editingMenu, setEditingMenu] = useState(false);
+  const [{ isDragging }, drag] = useDrag({
+    type: 'ISSUE', // Ensure type is defined
+    item: { id: issue.id },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
 
+  const opacity = isDragging ? 0.5 : 1;
   const saveEditedIssue = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -16,7 +25,7 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
     setEditingMenu(false);
   };
   return (
-    <div className="issue" data-testid="issue">
+    <div className="issue" data-testid="issue" ref={drag} style={{ opacity }}>
       {editing ? (
         <div>
           <form className="edit" onSubmit={saveEditedIssue}>

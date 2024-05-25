@@ -1,7 +1,6 @@
 // src/REPLACE.tsx
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import IssueWrapper from "./IssueWrapper";
 import Category from "./Category";
 import CreateCategory from "./CreateCategory";
 
