@@ -101,6 +101,7 @@ describe("KanbanBoard", () => {
           });
         }
       });
+      test.todo("Drag and drop issue into another category")
     });
   });
 });
