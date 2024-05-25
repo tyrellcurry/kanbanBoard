@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from 'jest';
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -90,7 +90,7 @@ const config: Config = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '@components(.*)': '<rootDir>/src/components$1', // might want?
-    "^.+\\.(css|less|scss)$": "babel-jest"
+    "^.+\\.(css|less|scss)$": "babel-jest",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -178,7 +178,9 @@ const config: Config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    "^.+\\.(j|t)sx?$": "ts-jest",
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -186,6 +188,7 @@ const config: Config = {
   //   "\\.pnp\\.[^\\/]+$"
   // ],
 
+  transformIgnorePatterns: ["/node_modules/(?!@react-dnd|react-dnd|dnd-core|react-dnd-html5-backend)"],
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 

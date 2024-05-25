@@ -2,13 +2,19 @@ import React, { useEffect, useState } from "react";
 import CreateIssue from "./CreateIssue";
 import uuid from "react-uuid";
 import Issue from "./Issue";
-import { useDrag } from 'react-dnd'
+import { useDrop, DropTargetMonitor } from 'react-dnd';
 
 interface Issue {
   id: string;
   issueTitle: string;
   issueDescription: string;
   category: string;
+}
+
+interface DropProps {
+  accept: string;
+  drop: (item: any, monitor: DropTargetMonitor, component: any) => void;
+  collect: (monitor: DropTargetMonitor) => { isOver: boolean };
 }
 
 const IssueWrapper = () => {
@@ -29,9 +35,18 @@ const IssueWrapper = () => {
       issue.id === id ? { ...issue, ...updatedIssue } : issue
     ));
   };
-
+  const [{ isOver }, drop] = useDrop<DropProps, void, { isOver: boolean }>({
+    accept: 'ISSUE', // Accepted type(s)
+    drop: (item: DropProps, monitor: DropTargetMonitor) => {
+      console.log('item dropped');
+      console.log(item, monitor);
+    }, // Drop handling function
+    collect: (monitor: DropTargetMonitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  });
   return (
-    <div className="issue_wrapper">
+    <div className="issue_wrapper" ref={drop} style={{ backgroundColor: isOver ? 'lightblue' : '#f0f0f0' }}>
       {
         issues.map((issue, index) => (
           <Issue issue={issue} key={index} deleteIssue={deleteIssue} updateIssue={updateIssue} />
