@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import CreateIssue from "./CreateIssue";
 import uuid from "react-uuid";
 import Issue from "./Issue";
@@ -14,7 +14,7 @@ const IssueWrapper = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
 
   const createIssue = (issueTitle: string, issueDescription: string) => {
-    const newIssue: Issue = { id: uuid(), issueTitle: issueTitle, issueDescription: issueDescription, category: 'todo'};
+    const newIssue: Issue = { id: uuid(), issueTitle: issueTitle, issueDescription: issueDescription, category: 'todo' };
     setIssues([...issues, newIssue]);
   };
 
@@ -22,15 +22,17 @@ const IssueWrapper = () => {
     setIssues(issues.filter(issue => issue.id !== id));
   }
 
-  const updateIssue = (id: string, inputText: string) => {
-    console.log(inputText);
-    setIssues(issues.map(issue => issue.id === id ? {...issue, issueTitle: inputText[0], issueDescription: inputText[1]} : issue))
-  }
+  const updateIssue = (id: string, updatedIssue: Partial<Issue>) => {
+    console.log(updatedIssue)
+    setIssues(issues.map(issue =>
+      issue.id === id ? { ...issue, ...updatedIssue } : issue
+    ));
+  };
 
   return (
     <div className="issue_wrapper">
       {
-        issues.map((issue, index) => (        
+        issues.map((issue, index) => (
           <Issue issue={issue} key={index} deleteIssue={deleteIssue} updateIssue={updateIssue} />
         ))
       }

@@ -9,9 +9,9 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
   const saveEditedIssue = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const inputText = formData.getAll("edit");
-    console.log(inputText);
-    updateIssue(issue.id, inputText);
+    const editedTitle = formData.get("title") as string; // Assuming 'edit' is the name of the input field for title
+    const editedDescription = formData.get("description") as string; // Assuming 'edit_description' is the name of the textarea for description
+    updateIssue(issue.id, { issueTitle: editedTitle, issueDescription: editedDescription });
     setEditing(false);
     setEditingMenu(false);
   };
@@ -20,15 +20,15 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
       {editing ? (
         <div>
           <form className="edit" onSubmit={saveEditedIssue}>
-            <input name="edit" type="text" data-testid="title_input" />
-            <textarea name="edit" data-testid="title_description"></textarea>
+            <input name="title" type="text" data-testid="title_input" />
+            <textarea name="description" data-testid="title_description"></textarea>
             <button data-testid="save_input"><FontAwesomeIcon icon={faFloppyDisk} />Save</button>
           </form>
         </div>
       ) : (
         <div className="contents">
           <div className="edit_menu">
-            <button onClick={() => setEditingMenu(!editingMenu)}><FontAwesomeIcon icon={faEllipsis} /></button>
+            <button data-testid="edit_ellipsis" onClick={() => setEditingMenu(!editingMenu)}><FontAwesomeIcon icon={faEllipsis} /></button>
           </div>
           {editingMenu && (
             <div className="editing">
