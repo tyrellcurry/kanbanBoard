@@ -4,6 +4,8 @@ import { createRoot } from "react-dom/client";
 import { Auth0Provider } from "@auth0/auth0-react";
 import Layout from "./Components/Layout";
 import App from "./App";
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import TestComponent from "./Components/TestComponent";
 
 const domNode = document.getElementById("root")!;
@@ -18,7 +20,9 @@ root.render(
         redirect_uri: window.location.origin,
       }}>
       <Layout>
-        <App />
+        <DndProvider backend={HTML5Backend}>
+          <App />
+        </DndProvider>
       </Layout>
     </Auth0Provider>
   </>

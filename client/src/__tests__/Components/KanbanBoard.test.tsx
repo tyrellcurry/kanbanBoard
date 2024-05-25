@@ -1,10 +1,17 @@
 import React from "react";
 import { fireEvent, render, screen, within, waitFor } from "@testing-library/react";
 import KanbanBoard from "../../Components/KanbanBoard";
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 describe("KanbanBoard", () => {
   beforeEach(() => {
-    render(<KanbanBoard />);
+    render(
+
+      <DndProvider backend={HTML5Backend}>
+        <KanbanBoard />
+      </DndProvider>
+    );
   });
 
   describe("base categories rendering", () => {

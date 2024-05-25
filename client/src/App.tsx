@@ -3,8 +3,6 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./app.scss";
 import KanbanBoard from "./Components/KanbanBoard";
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const App = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
@@ -22,9 +20,7 @@ const App = () => {
               <div className="title">
                 <h1>{user?.name ? `${user?.name}'s` : ""} Kanban Board</h1>
               </div>
-              <DndProvider backend={HTML5Backend}>
-                <KanbanBoard />
-              </DndProvider>
+              <KanbanBoard />
             </div>
           ) : (
             <div className="intro">
