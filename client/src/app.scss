@@ -45,9 +45,11 @@ button:hover {
 // Layout Component
 .layout {
   position: relative;
+
   main {
     padding: $page-padding;
   }
+
   // Nav
   nav {
     display: flex;
@@ -56,10 +58,12 @@ button:hover {
     padding: $layout-padding;
     background-color: $background;
     backdrop-filter: blur(4px);
+
     .logo img {
       width: 40px;
       height: auto;
     }
+
     .logo a {
       display: flex;
       gap: 0.5rem;
@@ -68,8 +72,10 @@ button:hover {
       font-size: 2rem;
       color: $primary-color;
     }
+
     ul {
       list-style: none;
+
       button {
         background: none;
         border: none;
@@ -80,6 +86,7 @@ button:hover {
         font-weight: 600;
         border-radius: $border-radius;
         cursor: pointer;
+
         &:hover {
           background-color: rgb(125, 125, 255);
         }
@@ -91,6 +98,7 @@ button:hover {
   .app {
     .loading {
       padding: 3rem 0;
+
       img {
         width: 100%;
         max-width: 150px;
@@ -103,22 +111,23 @@ button:hover {
   .intro {
     text-align: center;
     padding: 3rem 0;
+
     .title {
       h1 {
-        background-image: -webkit-linear-gradient(
-          45deg,
-          $accent-color-pink,
-          $primary-color
-        );
+        background-image: -webkit-linear-gradient(45deg,
+            $accent-color-pink,
+            $primary-color );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
         font-size: clamp(3rem, 6vw, 5rem);
       }
+
       p {
         font-size: 1.5rem;
       }
+
       img {
         width: 100%;
         max-width: 600px;
@@ -126,12 +135,15 @@ button:hover {
         padding-top: 2.5rem;
       }
     }
+
     .get_started {
       padding-top: 2rem;
+
       p {
         font-size: 1.25rem;
         font-weight: 600;
       }
+
       .buttons {
         padding-top: 1.5rem;
         display: flex;
@@ -145,9 +157,11 @@ button:hover {
 
   .kanban {
     padding: 3rem 0;
+
     .title {
       text-align: center;
     }
+
     .board {
       padding-top: 2rem;
       text-align: center;
@@ -156,8 +170,19 @@ button:hover {
       width: 100%;
       overflow-x: scroll;
 
+      .category_form {
+        display: flex;
+        gap: .5rem;
+
+        .buttons {
+          display: flex;
+          gap: .15rem;
+        }
+      }
+
       .issues {
         padding: 1rem 0;
+
         .issue_wrapper {
           background-color: $background-lighter;
           padding: 1.25rem;
@@ -166,23 +191,29 @@ button:hover {
           flex-direction: column;
           gap: 1rem;
         }
+
         .issue {
           background-color: $background-md-light;
           padding: 1rem;
           border-radius: $border-radius;
           min-height: 70px;
+
           &:hover {
             cursor: pointer;
             background-color: $background-md;
           }
+
           .edit {
-            input, textarea {
+
+            input,
+            textarea {
               width: 100%;
               margin-bottom: .5rem;
               padding: .25rem;
               border-radius: $border-radius;
               border: 1px solid $primary-color;
             }
+
             button {
               display: flex;
               gap: .25rem;
@@ -190,19 +221,23 @@ button:hover {
               align-items: center;
             }
           }
+
           .contents {
             position: relative;
-            h3 {
-            }
+
+            h3 {}
+
             p {
               margin-top: .5rem;
             }
           }
+
           .edit_menu {
             text-align: right;
             margin-top: -12px;
             margin-right: -5px;
           }
+
           .editing {
             display: flex;
             justify-content: flex-end;
@@ -216,28 +251,33 @@ button:hover {
             border-radius: $border-radius;
             filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
           }
+
           button {
             padding: 0;
             background: none;
             color: $primary-color;
+
             &:hover {
               color: $accent-color-blue;
             }
           }
         }
+
         .create_issue {
           button {
             padding: 0;
             color: $primary-color;
             font-weight: 600;
-            background: none;        
-            user-select: none;    
+            background: none;
+            user-select: none;
+
             &:hover {
               color: $accent-color-blue;
             }
           }
         }
       }
+
       .add_category {
         button {
           border: solid 2px $primary-color;
@@ -245,6 +285,7 @@ button:hover {
           background: $background-light;
           font-size: 1.15rem;
           padding: .25rem .5rem;
+
           &:hover {
             background: $background-md;
           }
@@ -258,6 +299,7 @@ button:hover {
     background-color: $background;
     padding: $layout-padding;
     margin-top: 2rem;
+
     .attribution_link {
       background: none;
       background-color: none;
@@ -266,6 +308,7 @@ button:hover {
       text-decoration: underline;
       color: $primary-color;
     }
+
     .attributions {
       padding: 2rem;
       border-radius: $border-radius;
@@ -280,19 +323,24 @@ button:hover {
       transform: translateY(-50%);
       width: 100%;
       max-width: 400px;
+
       .close {
         text-align: right;
+
         button {
           background: none;
           padding: 0;
         }
+
         svg {
           width: 22px;
         }
       }
+
       ul {
         list-style-type: none;
         padding: 0;
+
         li {
           padding: 0.25rem 0;
         }
