@@ -15,14 +15,16 @@ const CreateCategory = ({ addCategory }: any) => {
   return (
     <div>
       {editing ? (
-        <form onSubmit={saveCategory}>
-          <input data-testid="category_name_input" name="edit" type="text" />
-          <button data-testid="save_category">
-            <FontAwesomeIcon icon={faCheck} />
-          </button>
-          <button type="button" onClick={() => {setEditing(false)}}>
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
+        <form className="category_form" onSubmit={saveCategory}>
+          <input data-testid="category_name_input" name="edit" type="text" required />
+          <div className="buttons">
+            <button data-testid="save_category">
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
+            <button type="button" onClick={() => { setEditing(false) }}>
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
+          </div>
         </form>
       ) : (
         <button data-testid="add_category" onClick={() => setEditing(true)}>

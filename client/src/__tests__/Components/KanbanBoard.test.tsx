@@ -7,7 +7,6 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 describe("KanbanBoard", () => {
   beforeEach(() => {
     render(
-
       <DndProvider backend={HTML5Backend}>
         <KanbanBoard />
       </DndProvider>

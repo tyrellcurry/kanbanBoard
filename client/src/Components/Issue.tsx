@@ -29,8 +29,8 @@ const Issue = ({ issue, deleteIssue, updateIssue }: any) => {
       {editing ? (
         <div>
           <form className="edit" onSubmit={saveEditedIssue}>
-            <input name="title" type="text" data-testid="title_input" />
-            <textarea name="description" data-testid="title_description"></textarea>
+            <input name="title" type="text" data-testid="title_input" placeholder="title" />
+            <textarea name="description" data-testid="title_description" placeholder="description"></textarea>
             <button data-testid="save_input"><FontAwesomeIcon icon={faFloppyDisk} />Save</button>
           </form>
         </div>
